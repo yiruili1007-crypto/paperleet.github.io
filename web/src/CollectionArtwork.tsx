@@ -4,75 +4,99 @@ export default function CollectionArtwork({ kind }: { kind: string }) {
 
   switch (kind) {
     case "llm-basics":
+      artwork = (
+        <>
+          {/* Stacked Transformer layers, with tokens feeding the foundation. */}
+          <g fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M49 143V110M90 158v-27M131 143v-33" strokeOpacity=".5" strokeDasharray="3 5" />
+            <path d="m25 108 65-32 65 32-65 32Z" fill="white" fillOpacity=".12" strokeOpacity=".45" />
+            <path d="m25 80 65-32 65 32-65 32Z" fill="white" fillOpacity=".22" strokeOpacity=".65" />
+            <path d="m25 52 65-32 65 32-65 32Z" fill="white" fillOpacity=".35" strokeOpacity=".9" />
+            <path d="M25 52v56m130-56v56M90 84v56" strokeOpacity=".3" strokeDasharray="3 5" />
+            <path d="m57 52 33-16 33 16-33 16Z" strokeOpacity=".7" />
+          </g>
+          {[[57, 52], [90, 36], [123, 52], [90, 68]].map(([cx, cy], index) => (
+            <circle key={index} cx={cx} cy={cy} r="4" fill="white" fillOpacity=".95" />
+          ))}
+          {[[41, 143], [82, 151], [123, 143]].map(([x, y], index) => (
+            <rect key={index} x={x} y={y} width="16" height="16" rx="4" fill="white" fillOpacity=".75" />
+          ))}
+        </>
+      );
+      break;
     case "llm-frontier":
       artwork = (
         <>
-          <path d="M18 130 89 165 161 126 91 92Z" fill="white" fillOpacity=".07" />
-          <g transform="translate(43 27) rotate(12 53 61)">
-            <rect x="-8" y="8" width="114" height="122" rx="16" fill="white" fillOpacity=".06" stroke="white" strokeOpacity=".2" />
-            <rect width="114" height="122" rx="16" fill="white" fillOpacity=".12" stroke="white" strokeOpacity=".46" />
-            {[0, 1, 2, 3].flatMap((row) =>
-              [0, 1, 2, 3].map((column) => (
-                <rect key={`${row}-${column}`} x={13 + column * 24} y={17 + row * 24} width="16" height="16" rx="4"
-                  fill="white" fillOpacity={row === column ? .88 : column <= row ? .35 : .12} />
-              )),
-            )}
+          {/* A router activates parallel experts and combines their outputs. */}
+          <g fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 90h13M52 90h25M52 90C65 90 60 43 77 43M52 90c13 0 8 47 25 47" strokeOpacity=".7" />
+            <path d="M111 43c30 0 15 47 39 47M111 90h39M111 137c30 0 15-47 39-47" strokeOpacity=".45" />
+            <path d="m28 90 12-16 12 16-12 16Z" fill="white" fillOpacity=".45" strokeOpacity=".85" />
+            <rect x="77" y="26" width="34" height="34" rx="8" fill="white" fillOpacity=".55" strokeOpacity=".9" />
+            <rect x="77" y="73" width="34" height="34" rx="8" fill="white" fillOpacity=".28" strokeOpacity=".65" />
+            <rect x="77" y="120" width="34" height="34" rx="8" fill="white" fillOpacity=".1" strokeOpacity=".4" strokeDasharray="3 4" />
+            <path d="m87 43 5 5 9-10M87 90h14m-7-7v14" strokeOpacity=".95" />
+            <path d="m146 17 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="white" fillOpacity=".8" strokeOpacity=".9" />
           </g>
-          <path d="M22 114C45 114 35 68 57 68M22 114C53 114 41 143 79 143" fill="none" stroke="white" strokeOpacity=".65" strokeWidth="2" />
-          <circle cx="22" cy="114" r="7" fill="white" fillOpacity=".85" />
-          <circle cx="57" cy="68" r="3" fill="white" />
-          <circle cx="79" cy="143" r="3" fill="white" />
+          <circle cx="15" cy="90" r="5" fill="white" fillOpacity=".8" />
+          <circle cx="155" cy="90" r="9" fill="white" fillOpacity=".8" />
+          <circle cx="155" cy="90" r="16" fill="none" stroke="white" strokeOpacity=".25" />
         </>
       );
       break;
     case "retrieval":
       artwork = (
-        <g fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
-          <path d="M28 90h32m0 0 35-43m-35 43 35 43m0-86 46-18m-46 18 46 18m-46 68 46-18m-46 18 46 18" strokeOpacity=".55" />
-          {[[28,90],[60,90],[95,47],[95,133],[141,29],[141,65],[141,115],[141,151]].map(([cx,cy],i) => (
-            <circle key={i} cx={cx} cy={cy} r={i < 4 ? 9 : 6} fill="white" fillOpacity={i === 5 ? .9 : .2} strokeOpacity=".7" />
-          ))}
-          <path d="m135 64 4 4 8-9" stroke="#15464e" />
+        <g fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round">
+          {/* Search a document collection and highlight a recommended match. */}
+          <rect x="22" y="35" width="74" height="105" rx="8" fill="white" fillOpacity=".08" strokeOpacity=".3" strokeWidth="2" transform="rotate(-9 59 88)" />
+          <path d="M41 24h46l21 21v82a8 8 0 0 1-8 8H41a8 8 0 0 1-8-8V32a8 8 0 0 1 8-8Z" fill="white" fillOpacity=".18" strokeOpacity=".7" strokeWidth="2.5" />
+          <path d="M87 24v21h21M47 48h22M47 62h35M47 76h14" strokeOpacity=".65" strokeWidth="3" />
+          <circle cx="96" cy="94" r="33" fill="white" fillOpacity=".12" strokeOpacity=".95" strokeWidth="6" />
+          <path d="m120 119 26 27" strokeOpacity=".95" strokeWidth="12" />
+          <path d="m81 94 10 10 20-22" strokeOpacity=".95" strokeWidth="5" />
         </g>
       );
       break;
     case "rl":
       artwork = (
         <>
-          <circle cx="122" cy="88" r="58" fill="white" fillOpacity=".04" stroke="white" strokeOpacity=".13" />
-          <circle cx="122" cy="88" r="43" fill="none" stroke="white" strokeOpacity=".12" strokeDasharray="3 6" />
-          <g fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M29 96C53 96 43 52 78 52M29 96C54 96 50 132 84 132" strokeOpacity=".65" />
-            <path d="M78 52C112 52 105 30 142 30M78 52C110 52 110 80 142 80" strokeOpacity=".65" />
-            <path d="M84 132C117 132 111 119 148 119M84 132C116 132 115 157 148 157" strokeOpacity=".3" />
-            <path d="m131 26 11 4-9 7" strokeOpacity=".8" />
+          {/* A grid-world agent learns a path around obstacles to a reward. */}
+          <rect x="22" y="24" width="124" height="124" rx="10" fill="white" fillOpacity=".07" stroke="white" strokeOpacity=".5" strokeWidth="2" />
+          <g fill="none" stroke="white" strokeWidth="1.5" strokeOpacity=".2">
+            <path d="M53 24v124M84 24v124M115 24v124M22 55h124M22 86h124M22 117h124" />
           </g>
-          <circle cx="29" cy="96" r="12" fill="white" fillOpacity=".18" stroke="white" strokeOpacity=".6" />
-          <circle cx="29" cy="96" r="4" fill="white" />
-          <circle cx="78" cy="52" r="10" fill="white" fillOpacity=".85" />
-          <circle cx="84" cy="132" r="9" fill="white" fillOpacity=".3" stroke="white" strokeOpacity=".6" />
-          <circle cx="148" cy="30" r="7" fill="white" fillOpacity=".95" />
-          <circle cx="148" cy="80" r="7" fill="white" fillOpacity=".6" />
-          <circle cx="148" cy="119" r="7" fill="white" fillOpacity=".25" />
-          <circle cx="148" cy="157" r="7" fill="white" fillOpacity=".25" />
+          {[[26, 59], [88, 28], [88, 90], [57, 121]].map(([x, y], index) => (
+            <rect key={index} x={x} y={y} width="23" height="23" rx="4" fill="white" fillOpacity=".35" />
+          ))}
+          <path d="M37 132v-31h32V70h61V54m-6 6 6-6 6 6" fill="none" stroke="white" strokeOpacity=".95" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="37" cy="132" r="9" fill="white" fillOpacity=".9" />
+          <circle cx="37" cy="132" r="3" fill="white" />
+          <path d="m130 27 4 8 9 1-7 7 2 9-8-5-8 5 2-9-7-7 9-1Z" fill="white" fillOpacity=".95" stroke="white" strokeOpacity=".8" strokeLinejoin="round" />
         </>
       );
       break;
     case "diffusion":
       artwork = (
         <>
+          {/* Reverse diffusion: random noise resolves into a coherent image along a continuous flow. */}
           <g fill="none" stroke="white" strokeLinecap="round">
-            <path d="M27 145C110 162 56 50 154 34" strokeOpacity=".08" strokeWidth="27" />
-            <path d="M28 145C110 162 56 50 154 34" strokeOpacity=".7" strokeWidth="2" />
-            <path d="M23 126C87 148 76 63 157 55" strokeOpacity=".37" strokeWidth="1.5" />
-            <path d="M42 163C112 168 74 70 163 77" strokeOpacity=".28" strokeWidth="1.5" />
+            <path d="M44 240C32 182 84 196 102 139S132 48 240 48" strokeOpacity=".05" strokeWidth="27" />
+            <path d="M24 220C12 162 64 176 82 119S112 28 220 28" strokeOpacity=".22" strokeWidth="1.5" />
+            <path d="M44 240C32 182 84 196 102 139S132 48 240 48" strokeOpacity=".4" strokeWidth="2" />
+            <path d="M64 260C52 202 104 216 122 159S152 68 260 68" strokeOpacity=".18" strokeWidth="1.5" />
           </g>
-          {[[27, 51, 3], [45, 32, 2], [58, 63, 4], [23, 83, 2], [47, 96, 3], [73, 37, 2], [79, 82, 2], [20, 111, 3], [50, 122, 2], [81, 119, 3]].map(([cx, cy, r], index) => (
-            <circle key={index} cx={cx} cy={cy} r={r} fill="white" fillOpacity={.2 + (index % 3) * .15} />
+          {Array.from({ length: 36 }, (_, index) => {
+            const size = 2 + (index * 7 % 5);
+            return <rect key={index} x={9 + index % 6 * 8 + index * 3 % 5} y={113 + Math.floor(index / 6) * 9 + index * 7 % 5}
+              width={size} height={size} rx="1" fill="white" fillOpacity={.2 + (index * 11 % 7) * .1} />;
+          })}
+          <rect x="49" y="73" width="47" height="47" rx="6" fill="white" fillOpacity=".06" stroke="white" strokeOpacity=".3" strokeDasharray="2 4" />
+          {[[57, 81], [81, 81], [65, 89], [57, 97], [65, 97], [81, 97], [57, 105], [65, 105], [73, 105], [81, 105]].map(([x, y], index) => (
+            <rect key={index} x={x} y={y} width="6" height="6" rx="1" fill="white" fillOpacity={index > 5 ? .7 : .35} />
           ))}
-          <circle cx="141" cy="61" r="28" fill="white" fillOpacity=".09" stroke="white" strokeOpacity=".25" />
-          <circle cx="141" cy="61" r="17" fill="white" fillOpacity=".23" />
-          <circle cx="141" cy="61" r="7" fill="white" fillOpacity=".9" />
+          <rect x="98" y="20" width="56" height="56" rx="8" fill="white" fillOpacity=".15" stroke="white" strokeOpacity=".9" strokeWidth="2.5" />
+          <path d="m105 65 14-20 10 11 8-10 10 19Z" fill="white" fillOpacity=".45" stroke="white" strokeOpacity=".85" strokeWidth="2" strokeLinejoin="round" />
+          <circle cx="138" cy="35" r="5" fill="white" fillOpacity=".95" />
         </>
       );
       break;
