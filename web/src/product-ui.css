@@ -23,12 +23,12 @@ input, select, textarea { accent-color: var(--accent); }
 /* The header and catalog share the same horizontal alignment. */
 .app > .topbar { border-color: var(--line); flex-shrink: 0; }
 .app:not(.workspace-view) > .topbar { position: sticky; top: 0; z-index: 40; }
-.nav-inner { max-width: 1480px; padding-inline: var(--page-gutter); gap: 30px; }
+.nav-inner, .workspace-view .nav-inner { max-width: 1480px; padding-inline: var(--page-gutter); }
+.nav-inner { gap: 30px; }
 .brand { font-size: 24px; letter-spacing: -.6px; gap: 9px; }
 .brand-symbol { width: 35px; height: 35px; }
 .topbar nav { gap: 18px; }
 .topbar nav a, .topbar nav button { font-size: var(--type-body); }
-.topbar nav .active { font-weight: 600; }
 .topbar nav .active::after { height: 3px; border-radius: 3px 3px 0 0; }
 .nav-actions { gap: 12px; }
 .settings-entry { width: 36px; height: 36px; color: var(--muted); border: 1px solid transparent; }
@@ -157,7 +157,6 @@ input, select, textarea { accent-color: var(--accent); }
 .paper-source-card .text-button { display: inline-flex; align-items: center; gap: 6px; font-size: var(--type-small); }
 
 /* Make the workspace feel like a single instrument, with distinct control bands. */
-.workspace-view .nav-inner { max-width: none; padding-inline: 22px; }
 .workspace-view .workspace-toolbar { min-height: 48px; padding-inline: 22px; gap: 10px; }
 .workspace-toolbar > b { font-weight: 500; }
 .workspace-focus-toggle { border-radius: 6px; min-height: 32px; }
@@ -221,7 +220,8 @@ input, select, textarea { accent-color: var(--accent); }
 @keyframes nav-settle { from { transform: scaleX(.6); opacity: .4; } to { transform: scaleX(1); opacity: 1; } }
 
 @media (max-width: 1200px) {
-  .nav-inner { gap: 22px; }
+  .topbar { height: 92px; }
+  .nav-inner, .workspace-view .nav-inner { gap: 0 10px; }
   .topbar nav { gap: 12px; }
   .nav-actions { gap: 8px; }
   .connection { display: none; }
